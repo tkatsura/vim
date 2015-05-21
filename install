@@ -1,0 +1,6 @@
+# bash install
+
+mkdir bundle
+git clone https://github.com/Shougo/neobundle.vim bundle/neobundle.vim
+git clone https://github.com/Shougo/vimproc bundle/vimproc
+ln .vimrc ../.vimrc
