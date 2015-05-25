@@ -86,9 +86,7 @@ set shiftwidth=2
 "au BufRead,BufNew * match tabSpace / /
 
 " jjをescに割り当てる
-"inoremap <silent> jj <ESC>
-"inoremap <silent> <C-j> j
-"動かない
+inoremap <silent> jj <ESC>
 
 """"""""""""""""""""""""""""""
 " プラグインのセットアップ
