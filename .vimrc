@@ -82,6 +82,10 @@ set shiftwidth=2
 "highlight tabSpace cterm=underline ctermfg=Blue guifg=Blue
 "au BufRead,BufNew * match tabSpace / /
 
+" jjをescに割り当てる
+"inoremap <silent> jj <ESC>
+"inoremap <silent> <C-j> j
+"動かない
 
 """"""""""""""""""""""""""""""
 " プラグインのセットアップ
