@@ -95,6 +95,14 @@ inoremap <C-k> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
+" 入力後カーソルを移動
+imap {} {}<LEFT>
+imap [] []<LEFT>
+imap () ()<LEFT>
+imap '' ''<LEFT>
+imap "" ""<LEFT>
+imap <?php <?php  ?><LEFT><LEFT><LEFT>
+
 """"""""""""""""""""""""""""""
 " プラグインのセットアップ
 """"""""""""""""""""""""""""""
