@@ -38,6 +38,7 @@ set noswapfile
 " オートインデントを無効にする?
 "set noautoindent
 "set nosmartindent
+"set indentexpr=""
 
 " 入力中のコマンドを右下に表示
 set showcmd
@@ -85,8 +86,14 @@ set shiftwidth=2
 "highlight tabSpace cterm=underline ctermfg=Blue guifg=Blue
 "au BufRead,BufNew * match tabSpace / /
 
-" jjをescに割り当てる
+" insertモードから抜ける
 inoremap <silent> jj <ESC>
+
+" 挿入モードでのカーソル移動
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
 
 """"""""""""""""""""""""""""""
 " プラグインのセットアップ
@@ -114,6 +121,18 @@ NeoBundle 'Shougo/vimproc', {
   \    },
   \ }
 
+" 自動整形プラグイン
+NeoBundleLazy 'junegunn/vim-easy-align', {
+  \ 'autoload': {
+  \   'commands' : ['EasyAlign'],
+  \   'mappings' : ['<Plug>(EasyAlign)'],
+  \ }}
+
+" vim-easy-align {{{
+vmap <Enter> <Plug>(EasyAlign)
+nmap <Leader>a <Plug>(EasyAlign)
+" }}}
+
 " ファイルオープンを便利に
 "NeoBundle 'Shougo/unite.vim'
 " バッファ一覧
@@ -124,7 +143,6 @@ NeoBundle 'Shougo/vimproc', {
 "noremap <C-Z> :Unite file_mru<CR>
 " Unite.vimで最近使ったファイルを表示できるようにする
 "NeoBundle 'Shougo/neomru.vim'
-" ...省略
 
 " 構文エラーチェック
 NeoBundle "scrooloose/syntastic"
