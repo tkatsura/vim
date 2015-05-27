@@ -149,6 +149,9 @@ NeoBundle "scrooloose/syntastic"
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=2
 
+" vimの移動のhjklの養成ギプス
+"NeoBundle 'modsound/gips-vim'
+
 " インデントに色を付けて見やすくする
 "NeoBundle 'nathanaelkane/vim-indent-guides'
 " vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
