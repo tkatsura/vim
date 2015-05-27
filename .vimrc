@@ -32,6 +32,9 @@ set autoread
 " スワップファイルを作らない
 set noswapfile
 
+" コマンドの保存数を設定する(デフォルトは20)
+set history=100
+
 " 自動インデント
 "set smartindent
 "set paste
