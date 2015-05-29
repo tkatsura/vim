@@ -35,14 +35,6 @@ set noswapfile
 " コマンドの保存数を設定する(デフォルトは20)
 set history=100
 
-" 自動インデント
-"set smartindent
-"set paste
-" オートインデントを無効にする?
-"set noautoindent
-"set nosmartindent
-"set indentexpr=""
-
 " 入力中のコマンドを右下に表示
 set showcmd
 
@@ -52,9 +44,28 @@ set hlsearch
 " カラースキーム
 colorscheme desert
 
+" ペーストモード
+"set paste
+
+" 自動インデント
+set autoindent
+set smartindent
+
+" オートインデントを無効にする?
+"set noautoindent
+"set nosmartindent
+
 " タブ入力時半角スペース２に変換
-"set expandtab
+set noexpandtab
+
+"連続した空白に対してタブキーやバックスペースでカーソルが動く幅
 set softtabstop=2
+
+" 画面上でタブ文字が締める幅
+set tabstop=2
+
+" 自動インデントでずれる幅
+set shiftwidth=2
 
 " ステータスラインの設定
 set cmdheight=1
@@ -83,9 +94,6 @@ augroup vimrcEx
   au BufRead * if line("'\"") > 0 && line("'\"") <= line("$") |
   \ exe "normal g`\"" | endif
 augroup END
-
-set tabstop=2
-set shiftwidth=2
 "highlight tabSpace cterm=underline ctermfg=Blue guifg=Blue
 "au BufRead,BufNew * match tabSpace / /
 
@@ -99,12 +107,17 @@ inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
 " 入力後カーソルを移動
-imap {} {}<LEFT>
-imap [] []<LEFT>
-imap () ()<LEFT>
-imap '' ''<LEFT>
-imap "" ""<LEFT>
-imap <?php <?php  ?><LEFT><LEFT><LEFT>
+"imap {} {}<LEFT>
+"imap [] []<LEFT>
+"imap () ()<LEFT>
+"imap '' ''<LEFT>
+"imap "" ""<LEFT>
+"imap <?php <?php  ?><LEFT><LEFT><LEFT>
+
+" ローカル専用の設定
+if filereadable(expand('~/.vim/.vimrc.local'))
+  source ~/.vim/.vimrc.local
+endif
 
 """"""""""""""""""""""""""""""
 " プラグインのセットアップ
