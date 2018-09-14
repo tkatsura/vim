@@ -47,13 +47,16 @@ colorscheme desert
 " ペーストモード
 "set paste
 
+" バックスペースの有効化
+set backspace=indent,eol,start
+
 " 自動インデント
 set autoindent
-set smartindent
+"set smartindent
 
 " オートインデントを無効にする?
 "set noautoindent
-"set nosmartindent
+set nosmartindent
 
 " タブ入力時半角スペース２に変換
 set noexpandtab
@@ -113,6 +116,12 @@ inoremap <C-l> <Right>
 "imap '' ''<LEFT>
 "imap "" ""<LEFT>
 "imap <?php <?php  ?><LEFT><LEFT><LEFT>
+
+" vimdiffの色設定
+highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=22
+highlight DiffDelete cterm=bold ctermfg=10 ctermbg=52
+highlight DiffChange cterm=bold ctermfg=10 ctermbg=17
+highlight DiffText   cterm=bold ctermfg=10 ctermbg=21
 
 " ローカル専用の設定
 if filereadable(expand('~/.vim/.vimrc.local'))
@@ -185,7 +194,8 @@ let g:syntastic_auto_loc_list=2
 call neobundle#end()
 
 " Required:
-filetype plugin indent on
+"filetype plugin indent on
+filetype plugin on
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
