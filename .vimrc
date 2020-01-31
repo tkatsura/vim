@@ -131,74 +131,115 @@ endif
 """"""""""""""""""""""""""""""
 " プラグインのセットアップ
 """"""""""""""""""""""""""""""
-if has('vim_starting')
-  set nocompatible               " Be iMproved
-
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+if &compatible
+  set nocompatible
 endif
+set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
+call dein#begin(expand('~/.vim/dein'))
 
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
+call dein#add('Shougo/dein.vim')
+call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 
-NeoBundle 'Shougo/vimproc', {
-  \ 'build' : {
-  \     'windows' : 'make -f make_mingw32.mak',
-  \     'cygwin' : 'make -f make_cygwin.mak',
-  \     'mac' : 'make -f make_mac.mak',
-  \     'unix' : 'make -f make_unix.mak',
-  \    },
-  \ }
+"call dein#add('Shougo/neocomplete.vim')
+"call dein#add('Shougo/neomru.vim')
+"call dein#add('Shougo/neosnippet')
 
 " 自動整形プラグイン
-NeoBundleLazy 'junegunn/vim-easy-align', {
-  \ 'autoload': {
-  \   'commands' : ['EasyAlign'],
-  \   'mappings' : ['<Plug>(EasyAlign)'],
-  \ }}
+call dein#add('junegunn/vim-easy-align')
 
 " vim-easy-align {{{
 vmap <Enter> <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
 " }}}
 
-" ファイルオープンを便利に
-"NeoBundle 'Shougo/unite.vim'
-" バッファ一覧
-"noremap <C-P> :Unite buffer<CR>
-" ファイル一覧
-"noremap <C-N> :Unite -buffer-name=file file<CR>
-" 最近使ったファイルの一覧
-"noremap <C-Z> :Unite file_mru<CR>
-" Unite.vimで最近使ったファイルを表示できるようにする
-"NeoBundle 'Shougo/neomru.vim'
-
 " 構文エラーチェック
-NeoBundle "scrooloose/syntastic"
+call dein#add('scrooloose/syntastic')
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=2
 
-" vimの移動のhjklの養成ギプス
-"NeoBundle 'modsound/gips-vim'
-
-" インデントに色を付けて見やすくする
-"NeoBundle 'nathanaelkane/vim-indent-guides'
-" vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
-"let g:indent_guides_enable_on_vim_startup = 1
-
-
-call neobundle#end()
+call dein#end()
 
 " Required:
-"filetype plugin indent on
-filetype plugin on
+filetype plugin indent on
+syntax enable
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
+"" If you want to install not installed plugins on startup.
+"if dein#check_install()
+"  call dein#install()
+"endif
+
 """"""""""""""""""""""""""""""
+" プラグインのセットアップ
+""""""""""""""""""""""""""""""
+"if has('vim_starting')
+"  set nocompatible               " Be iMproved
+"
+"  " Required:
+"  set runtimepath+=~/.vim/bundle/neobundle.vim/
+"endif
+"
+"" Required:
+"call neobundle#begin(expand('~/.vim/bundle/'))
+"
+"" Let NeoBundle manage NeoBundle
+"" Required:
+"NeoBundleFetch 'Shougo/neobundle.vim'
+"
+"NeoBundle 'Shougo/vimproc', {
+"  \ 'build' : {
+"  \     'windows' : 'make -f make_mingw32.mak',
+"  \     'cygwin' : 'make -f make_cygwin.mak',
+"  \     'mac' : 'make -f make_mac.mak',
+"  \     'unix' : 'make -f make_unix.mak',
+"  \    },
+"  \ }
+"
+"" 自動整形プラグイン
+"NeoBundleLazy 'junegunn/vim-easy-align', {
+"  \ 'autoload': {
+"  \   'commands' : ['EasyAlign'],
+"  \   'mappings' : ['<Plug>(EasyAlign)'],
+"  \ }}
+"
+"" vim-easy-align {{{
+"vmap <Enter> <Plug>(EasyAlign)
+"nmap <Leader>a <Plug>(EasyAlign)
+"" }}}
+"
+"" ファイルオープンを便利に
+""NeoBundle 'Shougo/unite.vim'
+"" バッファ一覧
+""noremap <C-P> :Unite buffer<CR>
+"" ファイル一覧
+""noremap <C-N> :Unite -buffer-name=file file<CR>
+"" 最近使ったファイルの一覧
+""noremap <C-Z> :Unite file_mru<CR>
+"" Unite.vimで最近使ったファイルを表示できるようにする
+""NeoBundle 'Shougo/neomru.vim'
+"
+"" 構文エラーチェック
+"NeoBundle "scrooloose/syntastic"
+"let g:syntastic_enable_signs=1
+"let g:syntastic_auto_loc_list=2
+"
+"" vimの移動のhjklの養成ギプス
+""NeoBundle 'modsound/gips-vim'
+"
+"" インデントに色を付けて見やすくする
+""NeoBundle 'nathanaelkane/vim-indent-guides'
+"" vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
+""let g:indent_guides_enable_on_vim_startup = 1
+"
+"
+"call neobundle#end()
+"
+"" Required:
+""filetype plugin indent on
+"filetype plugin on
+"
+"" If there are uninstalled bundles found on startup,
+"" this will conveniently prompt you to install them.
+"NeoBundleCheck
+"""""""""""""""""""""""""""""""
 
