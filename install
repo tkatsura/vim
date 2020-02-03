@@ -9,8 +9,16 @@
 mkdir -p ~/.vim/dein/repos/github.com/Shougo/dein.vim
 git clone https://github.com/Shougo/dein.vim.git ~/.vim/dein/repos/github.com/Shougo/dein.vim
 
+# vim setting
 cd ../
 rm .vimrc
 rm .tmux.conf
 ln -s .vim/.vimrc .vimrc
 ln -s .vim/.tmux.conf .tmux.conf
+
+# vimdiff tool setting
+git config --global diff.tool vimdiff
+git config --global difftool.prompt false
+git config --global merge.tool vimdiff
+git config --global mergetool.prompt false
+
