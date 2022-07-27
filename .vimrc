@@ -44,6 +44,16 @@ set hlsearch
 " カラースキーム
 colorscheme desert
 
+" 上記のカラースキームでは対応できなくなったので追加
+augroup TransparentBG
+  autocmd!
+  autocmd Colorscheme * highlight Normal ctermbg=none
+  autocmd Colorscheme * highlight NonText ctermbg=none
+  autocmd Colorscheme * highlight LineNr ctermbg=none
+  autocmd Colorscheme * highlight Folded ctermbg=none
+  autocmd Colorscheme * highlight EndOfBuffer ctermbg=none 
+augroup END
+
 " ペーストモード
 "set paste
 
@@ -162,7 +172,7 @@ let g:syntastic_auto_loc_list=2
 call dein#end()
 
 " Required:
-filetype plugin indent on
+"filetype plugin indent on
 syntax enable
 
 "" If you want to install not installed plugins on startup.
