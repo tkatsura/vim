@@ -47,11 +47,11 @@ colorscheme desert
 " 上記のカラースキームでは対応できなくなったので追加
 augroup TransparentBG
   autocmd!
-  autocmd Colorscheme * highlight Normal ctermbg=none
-  autocmd Colorscheme * highlight NonText ctermbg=none
-  autocmd Colorscheme * highlight LineNr ctermbg=none
-  autocmd Colorscheme * highlight Folded ctermbg=none
-  autocmd Colorscheme * highlight EndOfBuffer ctermbg=none 
+  autocmd Colorscheme * highlight Normal ctermbg=black
+  autocmd Colorscheme * highlight NonText ctermbg=black
+  autocmd Colorscheme * highlight LineNr ctermbg=black
+  autocmd Colorscheme * highlight Folded ctermbg=black
+  autocmd Colorscheme * highlight EndOfBuffer ctermbg=black
 augroup END
 
 " ペーストモード
