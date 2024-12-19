@@ -54,6 +54,9 @@ augroup TransparentBG
   autocmd Colorscheme * highlight EndOfBuffer ctermbg=black
 augroup END
 
+" blade.phpをhtml形式として認識する
+autocmd BufNewFile,BufRead *.blade.php set filetype=php
+
 " ペーストモード
 "set paste
 
